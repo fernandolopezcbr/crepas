@@ -1,0 +1,322 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <script src="https://cpwebassets.codepen.io/assets/packs/js/authorizeDataCapture-1b61eb4ebbffa3bd99e9.js"></script>
+
+    <title>🥞 Crepas - Landing page</title>
+    <link rel="canonical" href="https://codepen.io/CodeByHans/pen/GRwgdKE" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+
+    <style>
+      @import "https://unpkg.com/normalize.css" layer(normalize);
+      @import "https://unpkg.com/open-props/open-props.min.css"
+        layer(open-props);
+      @import "https://unpkg.com/open-props/normalize.min.css" layer(open-props);
+
+      *,
+      *:after,
+      *:before {
+        box-sizing: border-box;
+        max-inline-size: 100%;
+      }
+
+      body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        overflow: auto;
+        overflow: hidden;
+        font-family: "Google Sans", sans-serif, system-ui;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+
+      li {
+        height: 100vh;
+        width: 100vw;
+        padding: 0;
+      }
+
+      ul.backdrops {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+      }
+
+      ul.contents {
+        height: 100vh;
+        scroll-snap-type: y mandatory;
+        overflow: auto;
+      }
+
+      .contents > li {
+        display: grid;
+        place-items: center;
+        scroll-snap-align: center;
+      }
+      .blur {
+        backdrop-filter: blur(15px);
+        background: hsla(0, 6%, 43%, 0.15);
+        padding: 5rem 0;
+        width: 100vw;
+        text-align: center;
+        -webkit-box-shadow: 0px 9px 30px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 9px 30px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 9px 30px 0px rgba(0, 0, 0, 0.75);
+      }
+
+      h2 {
+        font-size: var(--font-size-fluid-3);
+        color: var(--gray-0);
+        /*                */
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        filter: grayscale(0.5);
+      }
+
+      .backdrops li {
+        position: absolute;
+        inset: 0;
+      }
+
+      .backdrops li:not(:first-of-type) img {
+        transform: translateY(100%);
+      }
+
+      .scroller {
+        --radius: -2.25rem;
+        text-transform: uppercase;
+        color: var(--gray-0);
+        font-weight: bold;
+        position: fixed;
+        top: 1rem;
+        right: 2rem;
+        aspect-ratio: 1;
+        width: 6rem;
+      }
+
+      .scroller:before {
+        content: "";
+        position: absolute;
+        display: block;
+        inset: 0;
+        border-radius: 50%;
+        border: 1.5rem solid hsl(0 0% 0% / 0.25);
+      }
+
+      .scroller .char {
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+          rotate(calc((360 / var(--char-total)) * var(--char-index) * 1deg))
+          translateY(var(--radius));
+      }
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+  </head>
+
+  <body translate="no">
+    <div
+      class="scroller words chars splitting"
+      data-splitting=""
+      style="--word-total: 1; --char-total: 21"
+    >
+      <span
+        class="word"
+        data-word="Scroll•Scroll•Scroll•"
+        style="--word-index: 0"
+        ><span class="char" data-char="S" style="--char-index: 0">S</span
+        ><span class="char" data-char="c" style="--char-index: 1">c</span
+        ><span class="char" data-char="r" style="--char-index: 2">r</span
+        ><span class="char" data-char="o" style="--char-index: 3">o</span
+        ><span class="char" data-char="l" style="--char-index: 4">l</span
+        ><span class="char" data-char="l" style="--char-index: 5">l</span
+        ><span class="char" data-char="•" style="--char-index: 6">•</span
+        ><span class="char" data-char="S" style="--char-index: 7">S</span
+        ><span class="char" data-char="c" style="--char-index: 8">c</span
+        ><span class="char" data-char="r" style="--char-index: 9">r</span
+        ><span class="char" data-char="o" style="--char-index: 10">o</span
+        ><span class="char" data-char="l" style="--char-index: 11">l</span
+        ><span class="char" data-char="l" style="--char-index: 12">l</span
+        ><span class="char" data-char="•" style="--char-index: 13">•</span
+        ><span class="char" data-char="S" style="--char-index: 14">S</span
+        ><span class="char" data-char="c" style="--char-index: 15">c</span
+        ><span class="char" data-char="r" style="--char-index: 16">r</span
+        ><span class="char" data-char="o" style="--char-index: 17">o</span
+        ><span class="char" data-char="l" style="--char-index: 18">l</span
+        ><span class="char" data-char="l" style="--char-index: 19">l</span
+        ><span class="char" data-char="•" style="--char-index: 20"
+          >•</span
+        ></span
+      >
+    </div>
+    <main>
+      <ul class="backdrops">
+        <li>
+          <img
+            src="https://www.mesoamericana.edu.gt/wp-content/uploads/2020/10/Edificio-L3.png"
+            width="1920"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://www.acouplecooks.com/wp-content/uploads/2020/09/Latte-Art-066s.jpg"
+            width="1920"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://www.tastingtable.com/img/gallery/20-different-types-of-coffee-explained/l-intro-1659544996.jpg"
+            width="1920"
+            alt=""
+          />
+        </li>
+        <li>
+          <img
+            src="https://crnnoticias.com/wp-content/uploads/2023/07/FotoCV-CentroComercial04-scaled.webp"
+            width="1920"
+            alt=""
+          />
+        </li>
+      </ul>
+      <ul class="contents">
+        <li>
+          <div class="blur">
+            <h2>Sucursales</h2>
+          </div>
+        </li>
+        <li>
+          <div class="blur">
+            <h2>Zona 3 Quetzaltenango</h2>
+          </div>
+        </li>
+        <li>
+          <div class="blur">
+            <h2>zona 7 Trigales Quetzaltenango</h2>
+          </div>
+        </li>
+        <li>
+          <div class="blur">
+            <h2>Buscanos en Totonicapan nueva tienda!</h2>
+          </div>
+        </li>
+      </ul>
+    </main>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://flackr.github.io/scroll-timeline/dist/scroll-timeline.js"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    <script id="rendered-js">
+      Splitting();
+      const contents = document.querySelectorAll(".contents li"),
+        images = document.querySelectorAll(".backdrops li"),
+        spinner = document.querySelector(".scroller");
+
+      // For each TRIGGER set up a ViewTimeline
+      // Then create WAAPI for each backdrop
+
+      const TIMELINES = [];
+
+      contents.forEach((subject) => {
+        TIMELINES.push(
+          new ViewTimeline({
+            subject,
+            axis: "block",
+          })
+        );
+      });
+
+      images.forEach((backdrop, index) => {
+        const image = backdrop.querySelector("img");
+
+        image.animate(
+          [
+            {
+              transform: "translateY(0%)",
+            },
+          ],
+
+          {
+            timeline: TIMELINES[index - 1],
+            fill: "both",
+            delay: {
+              phase: "exit",
+              percent: CSS.percent(5),
+            },
+
+            endDelay: {
+              phase: "exit",
+              percent: CSS.percent(75),
+            },
+          }
+        );
+
+        image.animate(
+          [
+            {
+              transform: "translateY(-50%)",
+            },
+          ],
+
+          {
+            timeline: TIMELINES[index],
+            fill: "both",
+            delay: {
+              phase: "exit",
+              percent: CSS.percent(5),
+            },
+
+            endDelay: {
+              phase: "exit",
+              percent: CSS.percent(100),
+            },
+          }
+        );
+      });
+
+      spinner.animate(
+        [
+          {
+            transform: "rotate(360deg)",
+          },
+        ],
+
+        {
+          fill: "both",
+          timeline: TIMELINES[TIMELINES.length - 1],
+          delay: {
+            phase: "enter",
+            percent: CSS.percent(-200),
+          },
+
+          endDelay: {
+            phase: "enter",
+            percent: CSS.percent(100),
+          },
+        }
+      );
+      //# sourceURL=pen.js
+    </script>
+  </body>
+</html>
